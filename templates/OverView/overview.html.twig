@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block overview %}
+    <!-- Tabelle mit allen Laufern -->
+    <div class="col-md-12 col-sm-12 col-xs-12" id="tableList">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Lauftage</th>
+                <th>Strecke in km</th>
+            </tr>
+
+            <tr>
+                <td><a href="#">{{ user1 }}</a></td>
+                <td>5</td>
+                <td>100,89</td>
+            </tr>
+
+            <tr>
+                <td><a href="#">Justus</a></td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+
+            <tr>
+                <td><a href="#">Bob</a></td>
+                <td>5</td>
+                <td>23</td>
+            </tr>
+
+        </table>
+    </div>
+{% endblock %}

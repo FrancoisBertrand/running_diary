@@ -13,3 +13,10 @@ framework:
     #fragments: ~
     php_errors:
         log: true
+
+    assets:
+        packages:
+            bootstrap:
+                base_path: '/styles'
+            css:
+                base_path: '/styles'

@@ -4,11 +4,33 @@
         <meta charset="UTF-8">
         <title>{% block title %}Running Diary{% endblock %}</title>
         {% block stylesheets %}
-
+            <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.js') }}">
+            <link rel="stylesheet" href="{{ asset('styles/running_diary.css') }}">
         {% endblock %}
     </head>
     <body>
         <div class="container">
+            <div class="col-md-12 col-sm-12 col-xs-12" id="welcome">
+                <h1>Willkommen bei deinem Lauftagebuch!</h1>
+            </div>
+
+            <nav class="col-md-3 col-sm-6 col-xs-9 list-border" id="nav">
+                <ul>
+                    <li><a href="{{ path('userList') }}">&Uuml;bersicht</a> </li>
+                    <!-- if abfrage, wenn eingeloggt, dann geht es weiter sonst wird Login aufgerufen -->
+                    <li><a href="{{ path('userProfil') }}">Mein Profil</a> </li>
+                </ul>
+            </nav>
+
+            <div class="col-md-9 col-sm-6 col-xs-3">
+                <!-- TODO text fuer button aendern, wenn eingloggt oder nicht -->
+                <button>Log in</button>
+            </div>
+
+            {% block overview %}{% endblock %}
+
+            {% block anon %}{% endblock %}
 
         </div>
         {% block javascripts %}{% endblock %}

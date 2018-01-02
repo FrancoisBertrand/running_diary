@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block anon %}
+   <div class="col-md-12 col-sm-12 col-xs-12">
+       <div class="col-md-3 col-sm-6 col-xs-12 list-border" id="stat">
+           <table id="tabel_stat" class="statis">
+               <tr>
+                   <td>Gelaufene Tage:</td>
+                   <td>5</td>
+                   <td>Tage</td>
+               </tr>
+               <tr>
+                   <td>Gesamtlaufzeit:</td>
+                   <td>45</td>
+                   <td>h</td>
+               </tr>
+               <tr>
+                   <td>Gesamtstrecke:</td>
+                   <td>100</td>
+                   <td>km</td>
+               </tr>
+               <tr>
+                   <td>Angefangen vor:</td>
+                   <td></td>
+                   <td>Tagen</td>
+               </tr>
+           </table>
+       </div>
+
+       {% block user %}{% endblock %}
+
+   </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <br>
+        hier kommen die einzelnen tage hin
+    </div>
+
+
+
+
+{% endblock %}
