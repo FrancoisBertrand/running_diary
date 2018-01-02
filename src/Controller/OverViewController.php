@@ -27,7 +27,7 @@ class OverViewController extends Controller{
 
 
         return $this->render('OverView/overview.html.twig', array(
-            'user1' => $user1,
+
         ));
     }
 }
