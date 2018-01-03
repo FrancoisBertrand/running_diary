@@ -22,13 +22,14 @@ class ProfilController extends Controller{
          * TODO hier muessen noch userdaten geladen werden aehnlich wie bei road runner nur nicht aus localStor sondern aus DB
          */
 
-        $log = false;
+        $log = true;
+        $user = "Peter";
         /**
          * abfrage ob benutzer eingeloggt ist
          */
         if($log == true){
            return $this->render('Profil/profilUser.html.twig', array(
-
+                'user' => $user,
            ));
         }
         else{
