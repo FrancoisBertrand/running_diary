@@ -15,15 +15,13 @@ use App\Entity\UserData;
 class OverViewController extends Controller{
 
     /**
-     * @Route("/{name}", name="userList", defaults={"name"=null})
+     * @Route("OverView/userList", name="userList", defaults={"name"=null})
      */
     public function overView(){
 
         /**
          * TODO daten aus der DB fuer die Tabelle holen
          */
-        $users = $this->getDoctrine()->getRepository(UserData::class);
-        $user1 = $users->findBy(['username' => 'Peter']);
 
 
         return $this->render('OverView/overview.html.twig', array(
