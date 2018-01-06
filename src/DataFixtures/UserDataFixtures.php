@@ -37,9 +37,23 @@ class UserDataFixtures extends Fixture{
         $bob->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
         $bob->setPassword($this->encoder->encodePassword($bob, 'nummerdrei'));
 
+
+
+
+
         $manager->persist($peter);
         $manager->persist($justus);
         $manager->persist($bob);
+
+
+
+        $diary = new RunDiary();
+        $diary->setDistance(34.4);
+        $diary->setAvgSpeed(10);
+        $diary->setDuration("02:02:02");
+        $diary->setDate(new \DateTime());
+        $diary->setOwner($bob);
+        $manager->persist($diary);
 
         $manager->flush();
     }

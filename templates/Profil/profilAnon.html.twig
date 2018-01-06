@@ -1,39 +1,104 @@
 {% extends "base.html.twig" %}
 
 {% block anon %}
-   <div class="col-md-12 col-sm-12 col-xs-12">
-       <div class="col-md-3 col-sm-6 col-xs-12 list-border" id="stat">
-           <table id="tabel_stat" class="statis">
-               <tr>
-                   <td>Gelaufene Tage:</td>
-                   <td>5</td>
-                   <td>Tage</td>
-               </tr>
-               <tr>
-                   <td>Gesamtlaufzeit:</td>
-                   <td>45</td>
-                   <td>h</td>
-               </tr>
-               <tr>
-                   <td>Gesamtstrecke:</td>
-                   <td>100</td>
-                   <td>km</td>
-               </tr>
-               <tr>
-                   <td>Angefangen vor:</td>
-                   <td></td>
-                   <td>Tagen</td>
-               </tr>
-           </table>
-       </div>
+    {% set rundays = 0 %}
+    {% set totalDistance = 0 %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12 list-border" id="stat">
+            <table id="tabel_stat" class="statis">
 
-       {% block user %}{% endblock %}
+                {% for run in posts %}
+                    {%  set totalDistance = run.distance + totalDistance %}
+                    {% set rundays = rundays + 1 %}
+                {% endfor %}
 
-   </div>
+                <tr>
+                    <td>Läufer:</td>
+                    <td>{{ user.username }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gesamtstrecke:</td>
+                    <td>{{ totalDistance }}</td>
+                    <td>km</td>
+                </tr>
+                <tr>
+                    <td>Gelaufene Tage:</td>
+                    <td>{{ rundays }}</td>
+                    <td>Tage</td>
+                </tr>
+                <tr>
+                    <td>Angefangen vor:</td>
+                    <td>{{ rundayDiif.years }} Jahre - {{ rundayDiif.months }} Monate - {{ rundayDiif.days }} Tage</td>
+                    <td></td>
+                </tr>
+                {% set rundays = 0 %}
+                {% set totalDistance = 0 %}
+            </table>
+        </div>
+
+
+
+            {% if form is null %}
+            {% else %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="col-md-3 col-sm-6 col-xs-12 list-border">
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.date) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.distance) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.duration) }}
+                    </div>
+                        {% if avgSpeed.overForty %}
+                            <ul>
+                                <li>
+                                    Errechneter Durchschnitt ist  "{{ avgSpeed.output }}" km/h und überschreitet 40 km/h
+                                </li>
+                            </ul>
+                        {% endif %}
+                    <button type="submit">Add</button>
+                    {{ form_errors(form) }}
+                    {{ form_end(form) }}
+                    </div>
+                {% endif %}
+            {% endif %}
+
+
+        {% block user %}{% endblock %}
+
+    </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <br>
-        hier kommen die einzelnen tage hin
+        {% for post in posts %}
+            <div class="col-md-3 col-sm-6 col-xs-12 list-border">
+                <table>
+                    <tr>
+                        <td>Datum:</td>
+                        <td>{{ post.date | date('m/d/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Strecke:</td>
+                        <td>{{ post.distance }}</td>
+                    </tr>
+                    <tr>
+                        <td>Zeit:</td>
+                        <td>{{ post.duration }}</td>
+                    </tr>
+                    <tr>
+                        <td>Speed:</td>
+                        <td>{{ post.avgSpeed }}</td>
+                    </tr>
+                </table>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('delete', {id: post.id}) }}" class="btn btn-danger btn-sm" role="button" style="right: 0;">Löschen</a>
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
 
 

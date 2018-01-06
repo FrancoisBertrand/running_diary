@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Validator\Constraints\ValidDate as ValiDateError;
+use App\Validator\Constraints as contError;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RunDiaryRepository")
@@ -17,27 +20,31 @@ class RunDiary
     private $id;
 
     /**
+     * @contError\NegativeDistance
      * @ORM\Column(type="float")
      */
-    private $distance;
+    public $distance;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    public $date;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $avgSpeed;
+    public $avgSpeed;
 
     /**
+     * @contError\ValidDate()
      * @ORM\Column(type="string")
      */
-    private $avgTime;
+    public $duration;
 
     /**
-     * @ORM\Column(type="string")
+     * @var UserData
+     * @ORM\ManyToOne(targetEntity="App\Entity\UserData")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
 
@@ -108,17 +115,17 @@ class RunDiary
     /**
      * @return mixed
      */
-    public function getAvgTime()
+    public function getDuration()
     {
-        return $this->avgTime;
+        return $this->duration;
     }
 
     /**
-     * @param mixed $avgTime
+     * @param mixed $duration
      */
-    public function setAvgTime($avgTime)
+    public function setDuration($duration)
     {
-        $this->avgTime = $avgTime;
+        $this->duration = $duration;
     }
 
     /**

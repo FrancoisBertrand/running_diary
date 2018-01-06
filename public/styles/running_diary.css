@@ -57,15 +57,15 @@ th, td {
     padding: 15px;
 }
 
-button {
+input {
     padding: 2px 5px;
     text-align: center;
     border-radius: 4px;
     float: right;
 }
 
-button:hover {
-    background-color: green;
+input:hover {
+    background-color: blue;
     color: white;
 }
 

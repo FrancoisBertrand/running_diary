@@ -12,20 +12,32 @@
     <body>
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12" id="welcome">
-                <h1>Willkommen bei deinem Lauftagebuch!</h1>
+                <h1>Willkommen, bei deinem Lauftagebuch!</h1>
             </div>
 
             <nav class="col-md-3 col-sm-6 col-xs-9 list-border" id="nav">
                 <ul>
                     <li><a href="{{ path('userList') }}">&Uuml;bersicht</a> </li>
                     <!-- if abfrage, wenn eingeloggt, dann geht es weiter sonst wird Login aufgerufen -->
-                    <li><a href="{{ path('userProfil') }}">Mein Profil</a> </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('userProfil', {username: app.user.username}) }}">Mein Profil</a> </li>
+                        {% else %}
+                            <li><a href="{{ path('login') }}">Mein Profil</a> </li>
+                    {% endif %}
+
                 </ul>
             </nav>
 
             <div class="col-md-9 col-sm-6 col-xs-3">
-                <!-- TODO text fuer button aendern, wenn eingloggt oder nicht -->
-                <button>Log in</button>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <form action="/logout">
+                        <input type="submit" value="Logout">
+                    </form>
+                    {% else %}
+                        <form action="/login">
+                            <input type="submit" value="Login">
+                        </form>
+                {% endif %}
             </div>
 
             {% block overview %}{% endblock %}

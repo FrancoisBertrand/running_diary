@@ -1,6 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block overview %}
+    {% set rundays = 0 %}
+    {% set totalDistance = 0 %}
     <!-- Tabelle mit allen Laufern -->
     <div class="col-md-12 col-sm-12 col-xs-12" id="tableList">
         <table>
@@ -9,25 +11,23 @@
                 <th>Lauftage</th>
                 <th>Strecke in km</th>
             </tr>
+            {% for username in usernames %}
+                <tr>
+                    <td><a href="{{ path('userProfil', {username : username.username}) }}">{{ username.username }}</a></td>
 
-            <tr>
-                <td><a href="#">Peter</a></td>
-                <td>5</td>
-                <td>100,89</td>
-            </tr>
+                    {% for diary in diaries %}
+                        {% if username.id == diary.owner.id %}
+                            {% set  totalDistance = diary.distance + totalDistance %}
+                            {% set rundays = rundays + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    <td>{{ rundays }}</td>
+                    <td>{{ totalDistance }}</td>
 
-            <tr>
-                <td><a href="#">Justus</a></td>
-                <td>1</td>
-                <td>2</td>
-            </tr>
-
-            <tr>
-                <td><a href="#">Bob</a></td>
-                <td>5</td>
-                <td>23</td>
-            </tr>
-
+                    {% set totalDistance = 0 %}
+                    {% set rundays = 0 %}
+                </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}
