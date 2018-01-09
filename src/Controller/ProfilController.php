@@ -79,7 +79,7 @@ class ProfilController extends Controller{
         }
 
 
-        return $this->render('Profil/profilUser.html.twig', [
+        return $this->render('Profil/profilAnon.html.twig', [
            'user' => $userData,
            'posts' => $ownerPost,
             'form' => is_null($form) ? null : $form->createView(),

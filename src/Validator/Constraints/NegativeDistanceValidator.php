@@ -40,12 +40,6 @@ class NegativeDistanceValidator extends ConstraintValidator{
                 }
             }
         }
-        /*else{
-            var_dump($value);
-            $this->context->buildViolation($constraint->invalid_message)
-                ->setParameter('{{ string }}', $value)
-                ->addViolation();
-        }*/
     }
 
     function truncate_number( $number, $precision = 1) {
