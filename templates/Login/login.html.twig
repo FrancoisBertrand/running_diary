@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.js') }}">
+{% endblock %}
 
 <style>
     .panel-heading {
