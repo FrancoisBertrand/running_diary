@@ -18,7 +18,7 @@ class OverViewController extends Controller
 {
 
     /**
-     * @Route("OverView/userList", name="userList", defaults={"name"=null})
+     * @Route("OverView/userList", name="userList")
      * @Template("OverView/overview.html.twig")
      */
     public function overView(EntityManagerInterface $entityManager)
