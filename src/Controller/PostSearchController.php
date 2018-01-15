@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PostSearchController extends Controller{
 
+    // Aufgabe 7 Teil 2 ohne AJAX
 
     /**
     * @Route("/searchUser", name="searchUser")
@@ -30,13 +31,17 @@ class PostSearchController extends Controller{
 
         $users = $entityManager->getRepository('App:UserData')->findAll();
         $suche = $request->get('suche');
+        if(!empty($suche)){
+            // TODO status 404 wenn der Name falsch ist
+            return $this->redirectToRoute('userProfil', array('username' => $suche));
+        }
+        else{
+            throw $this->createNotFoundException("Der Läufer wurde nicht gefunden");
+        }
 
-
-        // TODO: Userabfrage, ob er existiert
-
-
-
-        return $this->redirectToRoute('userProfil', array('username' => $suche));
+        // TODO status 404
+        throw $this->createNotFoundException("Der Läufer wurde nicht gefunden");
+//        return $this->redirectToRoute('start');
     }
 
 }
