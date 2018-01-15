@@ -40,6 +40,16 @@
                 {% endif %}
             </div>
 
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <form action="{{ path('searchUser') }}" method="post">
+                    <div id="search">
+                        User suche: <input type="text" name="suche">
+                        <button type="submit">Suchen</button>
+                    </div>
+                </form>
+            </div>
+
+
             {% block overview %}{% endblock %}
 
             {% block anon %}{% endblock %}

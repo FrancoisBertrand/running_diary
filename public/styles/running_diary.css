@@ -60,12 +60,20 @@ input {
     padding: 2px 5px;
     text-align: center;
     border-radius: 4px;
+
+}
+
+input[type="submit"]{
     float: right;
 }
 
 input[type="submit"]:hover {
     background-color: blue;
     color: white;
+}
+
+#search{
+    float: left;
 }
 
 button{

@@ -101,6 +101,8 @@ class ProfilController extends Controller{
         return round(($speed * 3600),2);
     }
 
+
+    // Ueberpruefen wer eintraege loeschen darf
     /**
      * @Route("/Profil/diary/{id}", name="delete")
      * @param RunDiary $diary
