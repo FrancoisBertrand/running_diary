@@ -31,17 +31,16 @@ class PostSearchController extends Controller{
 
         $users = $entityManager->getRepository('App:UserData')->findAll();
         $suche = $request->get('suche');
-        if(!empty($suche)){
-            // TODO status 404 wenn der Name falsch ist
-            return $this->redirectToRoute('userProfil', array('username' => $suche));
+        if(empty($suche)){
+           throw $this->createNotFoundException("Suchanfrage darf nicht Leer sein!");
         }
         else{
+            for($i = 0; $i < count($users); $i++){
+                if($users[$i]->username === $suche){
+                    return $this->redirectToRoute('userProfil', array('username' => $suche));
+                }
+            }
             throw $this->createNotFoundException("Der Läufer wurde nicht gefunden");
         }
-
-        // TODO status 404
-        throw $this->createNotFoundException("Der Läufer wurde nicht gefunden");
-//        return $this->redirectToRoute('start');
     }
-
 }

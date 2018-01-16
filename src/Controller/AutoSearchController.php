@@ -12,6 +12,7 @@ namespace App\Controller;
 use App\Entity\UserData;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\User\User;
@@ -23,7 +24,7 @@ class AutoSearchController extends Controller{
      */
 
     /**
-     * @Route("/search/{search}", methods={"GET"})
+     * @Route("/search/{search}", methods={"GET"}, name="findUser")
      */
     public function searchUser(Request $request, $search, EntityManagerInterface $entityManager){
 
@@ -35,9 +36,8 @@ class AutoSearchController extends Controller{
         $findUsers = array();
 
         if($searchCounter >= 3){
-            for($i = 0; $i < 10; $i++){
+            for($i = 0; $i < count($allUsers); $i++){
                 if(!stristr($allUsers[$i]->username, $search)){
-
                 }
                 else{
                     $findUsers[$i] = $allUsers[$i];
@@ -47,7 +47,7 @@ class AutoSearchController extends Controller{
         }
 
         if(empty($findUsers)){
-            return $this->json("Leider keine Übereinstimmung gefunden.");
+            return $this->json("Leider keine Uebereinstimmung gefunden.");
         }
         else{
             return $this->json($findUsers);
