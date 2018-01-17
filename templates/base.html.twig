@@ -8,8 +8,6 @@
             <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.js') }}">
             <link rel="stylesheet" href="{{ asset('styles/jquery-3.2.1.min.js') }}">
             <link rel="stylesheet" href="{{ asset('styles/running_diary.css') }}">
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-            <link rel="stylesheet" href="/resources/demos/style.css">
         {% endblock %}
     </head>
     <body>
@@ -24,8 +22,8 @@
                     <!-- if abfrage, wenn eingeloggt, dann geht es weiter sonst wird Login aufgerufen -->
                     {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="{{ path('userProfil', {username: app.user.username}) }}">Mein Profil</a> </li>
-                        {% else %}
-                            <li><a href="{{ path('login') }}">Mein Profil</a> </li>
+                    {% else %}
+                        <li><a href="{{ path('login') }}">Mein Profil</a> </li>
                     {% endif %}
 
                 </ul>
@@ -48,10 +46,8 @@
                     <div id="searchDiv">
                         <label for="ajaxTextBox">Suche</label>
                         <input type="text" name="suche" id="ajaxTextBox" onkeyup="showHint(this.value)" autocomplete="off" placeholder="User suche...">
-                        <button type="submit" >Suchen</button>
+                        <button type="submit">Suchen</button>
                     </div>
-
-
                     <ul id="inputtxt">
                         <li>
 
@@ -71,12 +67,10 @@
             <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
             <script>
-
                 function showHint(str) {
                     var xhttp;
                     var minlength = 3;
                     var entitySelector = $("#inputtxt").html('');
-
                     if(str.length < minlength){
                         document.getElementById("inputtxt").innerHTML = "";
                         return;
@@ -84,19 +78,16 @@
                     if(str.length >= minlength){
                         xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
-                            if(this.readyState == 4 && this.status == 200){
-                                var input = this.responseText;
-
-                                var jsonText = JSON.parse(input);
+                            if(xhttp.readyState === 4 && xhttp.status === 200){
+                                var jsonText = JSON.parse(this.responseText);
                                 var keys = Object.keys(jsonText);
-
                                 for(var i = 0; i < keys.length; i++){
                                     if(jsonText.hasOwnProperty(keys[i])){
-                                        entitySelector.append('<a href="#">'+ jsonText[keys[i]].username +'</a><br>')
+                                        entitySelector.append('<a href="#">'+ jsonText[keys[i]].username +'</a><br>');
                                         $('#inputtxt a').click(function () {
                                             var userName = $(this).text();
                                             $('#ajaxTextBox').val(userName);
-                                        })
+                                        });
                                     }
                                 }
                             }

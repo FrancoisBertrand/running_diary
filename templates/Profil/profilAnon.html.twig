@@ -37,8 +37,6 @@
             </table>
         </div>
 
-
-
             {% if form is null %}
             {% else %}
                 {% if is_granted('ROLE_ADMIN') %}
@@ -67,6 +65,24 @@
                 {% endif %}
             {% endif %}
 
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            {% if is_granted('ROLE_ADMIN') %}
+                <form action="{{ path('runners', {username:user.username, '_format': 'csv'}) }}">
+                    <input type="submit" id="csvexp" value="CSV Export">
+                </form>
+                <form action="{{ path('runners', {username:user.username, '_format': 'json'}) }}">
+                    <input type="submit" id="jsonexp" value="JSON Export">
+                </form>
+            {% else %}
+                <form action="{{ path('login') }}">
+                    <input type="submit" value="CSV Export">
+                </form>
+                <form action="{{ path('login') }}">
+                    <input type="submit"  value="JSON Export">
+                </form>
+            {% endif %}
+        </div>
 
         {% block user %}{% endblock %}
 

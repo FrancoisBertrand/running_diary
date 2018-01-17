@@ -24,6 +24,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/proxy-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
@@ -56,9 +59,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/profiler-pack" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/serializer-pack" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/thanks" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
@@ -70,6 +76,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/web-server-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
     </content>
@@ -97,6 +104,9 @@
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
           <root url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />
           <root url="file://$MODULE_DIR$/vendor/ocramius/proxy-manager" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
           <root url="file://$MODULE_DIR$/vendor/psr/cache" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
@@ -129,9 +139,12 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/profiler-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/property-info" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />
           <root url="file://$MODULE_DIR$/vendor/symfony/thanks" />
           <root url="file://$MODULE_DIR$/vendor/symfony/translation" />
@@ -143,6 +156,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/web-server-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
         </CLASSES>
@@ -167,6 +181,9 @@
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
           <root url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />
           <root url="file://$MODULE_DIR$/vendor/ocramius/proxy-manager" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
           <root url="file://$MODULE_DIR$/vendor/psr/cache" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
@@ -199,9 +216,12 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/profiler-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/property-info" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/serializer-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />
           <root url="file://$MODULE_DIR$/vendor/symfony/thanks" />
           <root url="file://$MODULE_DIR$/vendor/symfony/translation" />
@@ -213,6 +233,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/web-server-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/yaml" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
         </SOURCES>
