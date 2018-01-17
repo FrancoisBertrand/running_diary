@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 class ExportController extends Controller{
 
     /**
-     * @Route("/runners/{username}.{_format}", defaults={"_format"="json"}, name="runners")
+     * @Route("/runners/{username}.{_format}", defaults={"_format":"json"}, name="runners")
      * @Method("GET")
      */
     public function exportJSON(UserData $user, Request $request)
@@ -44,7 +44,7 @@ class ExportController extends Controller{
 
 
     /**
-     * @Route("/runners/{username}.{_format}", defaults={"_format"="csv"}, name="runners")
+     * @Route("/runner/{username}.{_format}", defaults={"_format"="csv"}, name="runner")
      * @Method("GET")
      */
     public function exportCSV(UserData $user, Request $request)

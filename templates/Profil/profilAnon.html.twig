@@ -68,7 +68,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
             {% if is_granted('ROLE_ADMIN') %}
-                <form action="{{ path('runners', {username:user.username, '_format': 'csv'}) }}">
+                <form action="{{ path('runner', {username:user.username, '_format': 'csv'}) }}">
                     <input type="submit" id="csvexp" value="CSV Export">
                 </form>
                 <form action="{{ path('runners', {username:user.username, '_format': 'json'}) }}">
