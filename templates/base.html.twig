@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Running Diary{% endblock %}</title>
@@ -13,13 +13,12 @@
     <body>
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12" id="welcome">
-                <h1>Willkommen, bei deinem Lauftagebuch!</h1>
+                <h1>Willkommen, bei deinem Lauftagebuch! {{ app.request.locale }}</h1>
             </div>
 
             <nav class="col-md-3 col-sm-6 col-xs-9 list-border" id="nav">
                 <ul>
                     <li><a href="{{ path('userList') }}">&Uuml;bersicht</a> </li>
-                    <!-- if abfrage, wenn eingeloggt, dann geht es weiter sonst wird Login aufgerufen -->
                     {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="{{ path('userProfil', {username: app.user.username}) }}">Mein Profil</a> </li>
                     {% else %}
@@ -29,7 +28,14 @@
                 </ul>
             </nav>
 
-            <div class="col-md-9 col-sm-6 col-xs-3">
+            {# Sprache wechseln #}
+            <div class="col-md-3 col-sm-6 col-xs-3">
+                <a href="{{ path('changeEn') }}">en</a>
+                <span>|</span>
+                <a href="{{ path('changeDe') }}">de</a>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-3">
                 {% if is_granted('ROLE_ADMIN') %}
                     <form action="/logout">
                         <input type="submit" value="Logout">
@@ -60,6 +66,8 @@
             {% block overview %}{% endblock %}
 
             {% block anon %}{% endblock %}
+
+
 
         </div>
         {% block javascripts %}
