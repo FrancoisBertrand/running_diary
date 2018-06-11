@@ -20,6 +20,9 @@ class UserDataFixtures extends Fixture{
     public function __construct(UserPasswordEncoderInterface $encoder) {
         $this->encoder = $encoder;
     }
+
+
+    // dummy daten
     public function load(ObjectManager $manager)
     {
         $peter = new UserData();
